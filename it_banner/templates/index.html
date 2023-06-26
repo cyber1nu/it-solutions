@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div style="width: 100%; padding: 100px; min-height: 200px;">
+        <form method="get" name="q">
+            <!--{% csrf_token %}-->
+            <label>
+                <p>Введите текст для видео</p>
+                {{ form.query }}
+            </label>
+            <button type="submit">OK</button>
+        </form>
+    </div>
+</body>
+</html>
