@@ -1,19 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style-index.css' %}">
+
+    <title>IT Solutions</title>
 </head>
 <body>
-    <div style="width: 100%; padding: 100px; min-height: 200px;">
-        <form method="get" name="q">
-            <!--{% csrf_token %}-->
-            <label>
-                <p>Введите текст для видео</p>
-                {{ form.query }}
-            </label>
-            <button type="submit">OK</button>
-        </form>
-    </div>
+    <header class="header">
+        <h1 class="header__h1 visually-hidden">IT Solutions</h1>
+        <div class="container">
+            <div class="header__wrap flex">
+                <div class="header__logo">
+                    <svg width="240" height="133" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                         <title>background</title>
+                         <rect fill="#000" id="canvas_background" height="135" width="242" y="-1" x="-1"/>
+                         <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+                          <rect stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+                         </g>
+                        </g>
+                        <g>
+                         <title>Layer 1</title>
+                         <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_3" y2="116.144411" x2="18.542226" y1="7.113344" x1="9.542226" fill-opacity="null" stroke-opacity="null" stroke-width="2" />
+                         <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_4" y2="7.249997" x2="147.29999" y1="7.249997" x1="35.299992" fill-opacity="null" stroke-opacity="null" stroke-width="1.5"/>
+                         <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_5" y2="116.249997" x2="18.299992" y1="7.871114" x1="101.188209" fill-opacity="null" stroke-opacity="null" stroke-width="1.5"/>
+                         <text transform="matrix(1,0,0,2.5627056901449947,0,-125.81392244463648) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_7" y="86.249996" x="91.29999" fill-opacity="null" stroke-opacity="null" stroke-width="0">SOLUTIONS</text>
+                        </g>
+                    </svg>
+                </div>
+                <nav class="header__nav">
+                    <ul class="header__list flex reset-list">
+                        <li class="header__item">
+                            <a href="#" class="header__link">О нас</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#" class="header__link">Контакты</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#" class="header__link">Карта сайта</a>
+                        </li>
+                        <li class="header__item">
+                            <a href="#" class="header__link">Личный кабинет</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <div class="container">
+            <div class="content__wrap">
+                <form action="" class="content__form form">
+                    Получить бегущую видео-строку
+                    {{ form.query }}
+                    <button class="form__btn reset-btn">OK</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__wrap">
+                <span class="footer__text">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur corporis nostrum laboriosam maiores
+                    quibusdam delectus dicta eum mollitia nobis dolore, ex obcaecati animi perferendis quaerat facere corrupti
+                    adipisci nesciunt et.
+                </span>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
