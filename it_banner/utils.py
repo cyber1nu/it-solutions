@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 def make_banner(some_text: str):
-    clip = (VideoFileClip('it_banner/media/white.mp4', audio=False)
+    clip = (VideoFileClip('it-solutions/it_banner/media/white.mp4', audio=False)
             .subclip(0, 5)
             .speedx(0.7)
             .fx(vfx.colorx, 0.7))
