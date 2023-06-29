@@ -17,13 +17,13 @@ def make_banner(some_text: str):
     data = some_text
 
     if len(data) <= 10:
-        w, s, st = 100, 100, 100
+        w, s, st = 100, 150, 100
         duration = 2
     elif 10 < len(data) <= 50:
-        w, s, st = 300, 150, 300
+        w, s, st = 300, 200, 300
         duration = 3
     else:
-        w, s, st = 400, 200, 400
+        w, s, st = 400, 270, 400
         duration = 4
 
     txt = (TextClip(data, fontsize=140, font='arial', color='white').set_duration(duration))
