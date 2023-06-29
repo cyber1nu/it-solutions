@@ -18,5 +18,5 @@ class IndexView(FormMixin, View):
             logger.info(f'Введен запрос: {some_text}')
             QueryModel.objects.create(query=some_text)
             make_banner(some_text)
-            return FileResponse(open('it-solutions/it_banner/media/wgite1.mp4', 'rb'))
+            return FileResponse(open('it_banner/media/wgite1.mp4', 'rb'))
         return render(request, 'index.html', context={'form': self.form_class})
