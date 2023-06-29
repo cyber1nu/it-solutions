@@ -125,7 +125,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'it_banner/media/')
 
-MEDIA_URL = 'it-solutions/it_banner/media/'
+MEDIA_URL = 'it_banner/media/'
 
 LOGGING = {
     "version": 1,

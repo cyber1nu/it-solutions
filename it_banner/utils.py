@@ -9,7 +9,7 @@ logger = logging.getLogger(__name__)
 
 
 def make_banner(some_text: str):
-    clip = (VideoFileClip('it-solutions/it_banner/media/white.mp4', audio=False)
+    clip = (VideoFileClip('it_banner/media/white.mp4', audio=False)
             .subclip(0, 5)
             .speedx(0.7)
             .fx(vfx.colorx, 0.7))
@@ -34,6 +34,6 @@ def make_banner(some_text: str):
     #                                      max(5.4 * h / 6, int(0 * t))))
     txt_mov1 = txt_mov.set_pos('center')
     final = CompositeVideoClip([clip, txt_mov1], size=[400, 400])
-    banner = final.subclip(0, duration).write_videofile("it-solutions/it_banner/media/wgite1.mp4")
+    banner = final.subclip(0, duration).write_videofile("it_banner/media/wgite1.mp4")
 
     return banner
