@@ -1,39 +1,28 @@
-import moviepy
+import moviepy.editor as mpy
 from moviepy.editor import *
-from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
-from moviepy.video.io.VideoFileClip import VideoFileClip
+from vectortween.Mapping import Mapping
 
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-def make_banner(some_text: str):
-    clip = (VideoFileClip('it_banner/media/white.mp4', audio=False)
-            .subclip(0, 5)
-            .speedx(0.7)
-            .fx(vfx.colorx, 0.7))
+def make_banner(some_text):
+    video_file = mpy.VideoFileClip('it_banner/media/white.mp4')
+    duration = 3
+    video_width, video_height = video_file.size
+    textclip = mpy.TextClip(some_text, color='black', align='center', fontsize=100, font='Ubuntu-bold',
+                            method='label', bg_color='transparent')
+    textclip_width, textclip_height = textclip.size
 
-    data = some_text
+    desired_final_x = 400
+    desired_final_y = 0
 
-    if len(data) <= 10:
-        w, s, st = 100, 150, 100
-        duration = 2
-    elif 10 < len(data) <= 50:
-        w, s, st = 300, 200, 300
-        duration = 3
-    else:
-        w, s, st = 400, 270, 400
-        duration = 4
+    def position(t):
+        return Mapping.linlin(t, 0, duration, desired_final_x, 0 - textclip_width), desired_final_y
 
-    txt = (TextClip(data, fontsize=140, font='arial', color='white').set_duration(duration))
-    txt_mov = moviepy.video.fx.all.scroll(txt, h=150, w=w, x_speed=s, y_speed=0, x_start=st, y_start=200)
-    # txt_col = txt.on_color(size=(clip.w + txt.w, txt.h - 10),
-    #                        color=(0, 0, 0), pos=(0, 'center'), col_opacity=0.8)
-    # txt_mov = txt_col.set_pos(lambda t: (max(1, int(w - 0.5 * w * t)),
-    #                                      max(5.4 * h / 6, int(0 * t))))
-    txt_mov1 = txt_mov.set_pos('center')
-    final = CompositeVideoClip([clip, txt_mov1], size=[400, 400])
-    banner = final.subclip(0, duration).write_videofile("it_banner/media/wgite1.mp4")
+    add_text = textclip.set_position(position).set_duration(duration)
+    final = mpy.CompositeVideoClip([video_file, add_text], size=[400, 400])
+    video = final.subclip(0, duration).write_videofile("it_banner/media/wgite1.mp4")
+    return video
 
-    return banner
